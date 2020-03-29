@@ -66,7 +66,8 @@ void Need()
 	
 	
         free(resources);
-        for(int i=0; i<no_of_processes; i++) {
+        for(int i=0; i<no_of_processes; i++)
+	{
                 free(allocated[i]);
                 free(maxr[i]);
 		free(need[i]);
@@ -77,7 +78,8 @@ void Need()
         free(safeSeq);
 }
 
-bool safaseq() {
+bool safaseq() 
+{
 	
         int r_temp[no_of_resources];
         for(int i=0; i<no_of_resources; i++) 
@@ -121,7 +123,8 @@ bool safaseq() {
 }
 
 
-void* p_code(void *a) {
+void* p_code(void *a)
+{
         int n = *((int *) a);
 
 	
@@ -132,7 +135,7 @@ void* p_code(void *a) {
                 pthread_cond_wait(&cond, &lock);
 
 	
-        printf("\n--> Process P%d", n); //n+1
+        printf("\n--> Process P%d", n); 
         printf("\n\tAllocated : ");
         for(int i=0; i<no_of_resources; i++)
                 printf("%3d", allocated[n][i]);
@@ -178,7 +181,8 @@ void* p_code(void *a) {
 }
 
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv) 
+{
 	srand(time(NULL));
 	printf("\nThis program is based on Banker's Algorithm using multithreading and mutex");
         printf("\nEnter The Number of Processes");
@@ -210,7 +214,8 @@ int main(int argc, char** argv) {
         printf("\n");
 
 	// maxrimum required resources
-        for(int i=0; i<no_of_processes; i++) {
+        for(int i=0; i<no_of_processes; i++)
+	{
                 printf("\nmaximum resource that is required by process %d ", i+1);
                 for(int j=0; j<no_of_resources; j++)
                         scanf("%d", &maxr[i][j]);
